@@ -29,7 +29,7 @@ Color_Wheel::Color_Wheel(QWidget *parent) :
     QWidget(parent), huem(0), sat(0), val(0),
     wheel_width(20), mouse_status(Nothing)
 {
-    //setFixedSize(200,200);
+    setFixedSize(200,200);
 
 }
 
