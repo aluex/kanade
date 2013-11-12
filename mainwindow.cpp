@@ -11,13 +11,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //QHBoxLayout *mainLayout = new QHBoxLayout(this);
-    Kanade *k = new Kanade(this);
+    //Kanade *k = new Kanade(this);
     //setCentralWidget(k);
     //k->setGeometry(0,0,800,800);
-    Color_Wheel *c = new Color_Wheel;
+    //Color_Wheel *c = new Color_Wheel;
     //ui->verticalLayout->addWidget(c);
-    ui->horizontalLayout->addWidget(c);
-    ui->horizontalLayout->addWidget(k);
+    //ui->verticalLayout->addWidget(c);
+    //ui->horizontalLayout->addWidget(k);
     //setLayout(mainLayout);
     setWindowTitle(tr("Kanade2"));
 }
