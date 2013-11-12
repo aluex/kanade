@@ -10,7 +10,7 @@ Kanade::Kanade(QWidget *parent)
 {
 	setAttribute(Qt::WA_StaticContents);
 
-	setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
 	curColor = Qt::black;
 	zoom = 1;

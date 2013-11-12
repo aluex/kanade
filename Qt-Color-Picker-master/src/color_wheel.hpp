@@ -77,7 +77,6 @@ public:
 
     /// Set the width in pixels of the outer wheel
     void setWheelWidth(unsigned w);
-
 public slots:
 
     /// Set current color
