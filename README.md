@@ -1,4 +1,3 @@
-kanade
-======
+Project Kanade
+===
 
-kanade
