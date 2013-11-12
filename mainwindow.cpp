@@ -4,7 +4,7 @@
 #include "color_wheel.hpp"
 #include <QHBoxLayout>
 
-#include <presets.h>
+#include "presets.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

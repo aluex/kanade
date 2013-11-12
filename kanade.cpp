@@ -1,7 +1,7 @@
 #include <QtGui>
 
 #include "kanade.h"
-#include <presets.h>
+#include "presets.h"
 
 Kanade::Kanade(QWidget *parent)
 	:QWidget(parent)
