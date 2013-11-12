@@ -16,7 +16,8 @@ SOURCES += main.cpp\
         mainwindow.cpp
 SOURCES += kanade.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    presets.h
 HEADERS  += kanade.h
 
 FORMS    += mainwindow.ui
