@@ -1,9 +1,7 @@
 #include <QtGui>
 
 #include "kanade.h"
-
-#define PRE_WIDTH 1024
-#define PRE_HEIGHT 1024
+#include <presets.h>
 
 Kanade::Kanade(QWidget *parent)
 	:QWidget(parent)
@@ -12,7 +10,7 @@ Kanade::Kanade(QWidget *parent)
 
     setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
-	curColor = Qt::black;
+    curColor = PRE_COLOR; opacity = PRE_OPACITY ; width = PRE_WIDTH;
 	zoom = 1;
     image = QImage(PRE_HEIGHT, PRE_WIDTH, QImage::Format_ARGB32);
     image.fill(qRgba(255, 255, 255, 255));
@@ -26,7 +24,7 @@ QSize Kanade::sizeHint() const
 
 void Kanade::setPenColor(const QColor &newColor)
 {
-	curColor = newColor;
+    curColor = newColor;
 }
 
 void Kanade::setPicImage(const QImage &newImage)
@@ -72,8 +70,8 @@ void Kanade::drawLine(const QPoint &start, const QPoint &end)
     QPainter p(&image);
    // p.begin();
     p.setRenderHint(QPainter::Antialiasing, true);
-    p.setPen(QPen(Qt::black, 12, Qt::SolidLine, Qt::RoundCap));
-    p.setBrush(QBrush(Qt::black));
+    p.setPen(QPen(curColor, width, Qt::SolidLine, Qt::RoundCap));
+    p.setBrush(QBrush(curColor));
     p.drawLine(start, end);
 }
 

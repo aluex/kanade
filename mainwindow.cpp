@@ -4,21 +4,20 @@
 #include "color_wheel.hpp"
 #include <QHBoxLayout>
 
+#include <presets.h>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->colorWheelholder, SIGNAL(colorChanged(QColor)), ui->canvasHolder, SLOT(setCurrentColor(QColor)));
+    connect(ui->hSb_Width, SIGNAL(valueChanged(int)), ui->canvasHolder, SLOT(setWidth(int)));
+    connect(ui->hSb_Opacity, SIGNAL(valueChanged(int)), ui->canvasHolder, SLOT(setOpacity(int)));
+    ui->hSb_Opacity->setValue(PRE_OPACITY);
+    ui->hSb_Width->setValue(PRE_WIDTH);
+    ui->colorWheelholder->setColor(PRE_COLOR);
 
-    //QHBoxLayout *mainLayout = new QHBoxLayout(this);
-    //Kanade *k = new Kanade(this);
-    //setCentralWidget(k);
-    //k->setGeometry(0,0,800,800);
-    //Color_Wheel *c = new Color_Wheel;
-    //ui->verticalLayout->addWidget(c);
-    //ui->verticalLayout->addWidget(c);
-    //ui->horizontalLayout->addWidget(k);
-    //setLayout(mainLayout);
     setWindowTitle(tr("Kanade2"));
 }
 

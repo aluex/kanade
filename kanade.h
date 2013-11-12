@@ -38,6 +38,25 @@ public:
 
 	QSize sizeHint() const;
 
+public slots:
+    void setCurrentColor(QColor c)
+    {
+        curColor = c;
+        curColor.setAlpha(opacity);
+    }
+
+    void setOpacity(int opac)
+    {
+        opacity = opac;
+        curColor.setAlpha(opacity);
+    }
+
+    void setWidth(int w)
+    {
+        width = w;
+    }
+
+
 protected:
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
@@ -51,7 +70,7 @@ private:
     QPoint lastPoint;
     QColor curColor;
     QImage image;
-	int zoom;
+    int zoom, opacity, width;
     bool drawing;
 };
 
