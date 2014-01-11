@@ -50,7 +50,7 @@ Please see */BrowserEnd/Kanade Protocol.txt* (Written in **Chinese**)
 	+ IE7+ : Unknown
 
 
-## Acknowledges
+## Acknowledgements
 ---
 Super thanks to @CR(Jingran Chu), @Umi and @Bamboo!</b>
 
