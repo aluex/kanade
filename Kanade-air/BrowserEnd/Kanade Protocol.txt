@@ -39,7 +39,7 @@ Kanade Protocol
             {
                 msgType: 消息类型（'history', 'msg', 'other'中的一种，分别表示绘画历史，用户消息，未定）
                 msgContent: 消息内容
-                [其他属性,由msgType决定]
+                # 其他属性,由msgType决定
             }
         ]
 	}

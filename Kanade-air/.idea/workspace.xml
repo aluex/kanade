@@ -4,7 +4,7 @@
     <list default="true" id="7bdad92d-3188-441e-995a-1ada81b5194b" name="Default" comment="" />
     <ignored path="Kanade-air.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389444206450" ignored="false" />
+    <file path="/index.html" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389454168407" ignored="false" />
     <file path="/main.css" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389435049492" ignored="false" />
     <file path="/main.js" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389445274146" ignored="false" />
     <file path="/sb-admin.css" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1388826865556" ignored="false" />
@@ -13,7 +13,7 @@
     <file path="/index.js" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389423322216" ignored="false" />
     <file path="/router.js" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389363837263" ignored="false" />
     <file path="/requestHandler.js" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389446147759" ignored="false" />
-    <file path="/Kanade Protocol.txt" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389422778797" ignored="false" />
+    <file path="/Kanade Protocol.txt" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389454675323" ignored="false" />
     <file path="/socket.js" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389421665968" ignored="false" />
     <file path="/frontend.js" changelist="7bdad92d-3188-441e-995a-1ada81b5194b" time="1389405357751" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,10 +35,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="requestHandler.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="requestHandler.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ServerEnd/requestHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="4" selection-start="2936" selection-end="2936" vertical-scroll-proportion="0.30875576">
+            <state line="141" column="29" selection-start="3413" selection-end="3413" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -47,22 +47,17 @@
       <file leaf-file-name="Kanade Protocol.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrowserEnd/Kanade Protocol.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="39" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
+            <state line="43" column="26" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BrowserEnd/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="372" column="90" selection-start="24144" selection-end="24158" vertical-scroll-proportion="-5.46">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#li#5;n#ul#0;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#ul#2;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#li#0;n#ul#2;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#object#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="312" column="43" selection-start="20043" selection-end="20708" vertical-scroll-proportion="0.8214286">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,7 +65,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrowserEnd/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="18" selection-start="6854" selection-end="6854" vertical-scroll-proportion="-13.038462">
+            <state line="201" column="18" selection-start="6854" selection-end="6854" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -79,7 +74,7 @@
       <file leaf-file-name="socket.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrowserEnd/js/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="57" selection-start="1497" selection-end="1497" vertical-scroll-proportion="-16.076923">
+            <state line="56" column="57" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -88,7 +83,7 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrowserEnd/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="1" selection-start="456" selection-end="456" vertical-scroll-proportion="-7.6538463">
+            <state line="28" column="1" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,7 +92,7 @@
       <file leaf-file-name="framework.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrowserEnd/css/framework.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="33" selection-start="191" selection-end="192" vertical-scroll-proportion="-8.807693">
+            <state line="17" column="33" selection-start="191" selection-end="192" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,7 +101,7 @@
       <file leaf-file-name="kanade.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrowserEnd/js/kanade.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="404" column="21" selection-start="13147" selection-end="13147" vertical-scroll-proportion="-46.03846">
+            <state line="404" column="21" selection-start="13147" selection-end="13147" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -116,9 +111,7 @@
         <entry file="file://$PROJECT_DIR$/ServerEnd/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="29" column="39" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,9 +120,7 @@
         <entry file="file://$PROJECT_DIR$/ServerEnd/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="25" column="9" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#155#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,14 +143,14 @@
         <option value="$PROJECT_DIR$/ServerEnd/router.js" />
         <option value="$PROJECT_DIR$/BrowserEnd/js/frontend.js" />
         <option value="$PROJECT_DIR$/BrowserEnd/js/socket.js" />
-        <option value="$PROJECT_DIR$/BrowserEnd/Kanade Protocol.txt" />
         <option value="$PROJECT_DIR$/ServerEnd/server.js" />
         <option value="$PROJECT_DIR$/ServerEnd/index.js" />
         <option value="$PROJECT_DIR$/BrowserEnd/js/kanade.js" />
         <option value="$PROJECT_DIR$/BrowserEnd/css/main.css" />
-        <option value="$PROJECT_DIR$/BrowserEnd/index.html" />
         <option value="$PROJECT_DIR$/BrowserEnd/js/main.js" />
         <option value="$PROJECT_DIR$/ServerEnd/requestHandler.js" />
+        <option value="$PROJECT_DIR$/BrowserEnd/index.html" />
+        <option value="$PROJECT_DIR$/BrowserEnd/Kanade Protocol.txt" />
       </list>
     </option>
   </component>
@@ -407,16 +398,12 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/BrowserEnd/js/frontend.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="6" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="25" column="6" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ServerEnd/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="27" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrowserEnd/404.html">
@@ -426,100 +413,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ServerEnd/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="27" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrowserEnd/css/framework.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="191" selection-end="192" vertical-scroll-proportion="-8.807693">
+        <state line="17" column="33" selection-start="191" selection-end="192" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1257" column="35" selection-start="21986" selection-end="21986" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="1257" column="35" selection-start="21986" selection-end="21986" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrowserEnd/js/frontend.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="32" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="32" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ServerEnd/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="39" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ServerEnd/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="9" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#155#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrowserEnd/js/kanade.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="404" column="21" selection-start="13147" selection-end="13147" vertical-scroll-proportion="-46.03846">
+        <state line="404" column="21" selection-start="13147" selection-end="13147" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrowserEnd/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="1" selection-start="456" selection-end="456" vertical-scroll-proportion="-7.6538463">
+        <state line="28" column="1" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BrowserEnd/Kanade Protocol.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="39" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BrowserEnd/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="372" column="90" selection-start="24144" selection-end="24158" vertical-scroll-proportion="-5.46">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#li#5;n#ul#0;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#2;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#li#0;n#ul#2;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrowserEnd/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="18" selection-start="6854" selection-end="6854" vertical-scroll-proportion="-13.038462">
+        <state line="201" column="18" selection-start="6854" selection-end="6854" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrowserEnd/js/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="57" selection-start="1497" selection-end="1497" vertical-scroll-proportion="-16.076923">
+        <state line="56" column="57" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ServerEnd/requestHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="4" selection-start="2936" selection-end="2936" vertical-scroll-proportion="0.30875576">
+        <state line="141" column="29" selection-start="3413" selection-end="3413" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrowserEnd/Kanade Protocol.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="26" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrowserEnd/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="312" column="43" selection-start="20043" selection-end="20708" vertical-scroll-proportion="0.8214286">
           <folding />
         </state>
       </provider>
