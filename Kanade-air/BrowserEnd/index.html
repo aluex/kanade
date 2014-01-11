@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Kanade Air</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--link href="css/bootstrap-theme.css" rel="stylesheet"-->
+    <link href="css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/framework.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap-switch.min.js"></script>
+    <script src="js/raphael-2.1.0-min.js" type="text/javascript"></script>
+    <script src="js/colorwheel.js" type="text/javascript"></script>
+    <script src="js/notify.js" type="text/javascript"></script>
+
+</head>
+<body>
+      <div class="container">
+          <nav id="navbar-example" class="navbar navbar-fixed-top navbar-default navbar-static" role="navigation">
+              <div class="navbar-header">
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-js-navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Kanade Air</a>
+              </div>
+              <div class="collapse navbar-collapse bs-js-navbar-collapse">
+
+                  <ul class="nav navbar-nav">
+                      <li class="dropdown">
+                          <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Connect <b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                              <!--li role="presentation"><a role="menuitem" tabindex="-1" href="#">New</a></li-->
+                              <li role="presentation"><a id="menu-connect" role="menuitem" tabindex="-1" href="#">Connect to Server</a></li>
+                              <li role="presentation" class="divider"></li>
+                              <li role="presentation"><a id="menu-disconnect" role="menuitem" tabindex="-1" href="#">Disconnect</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">File <b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                              <!--li role="presentation"><a role="menuitem" tabindex="-1" href="#">New</a></li-->
+                              <li role="presentation"><a id="menu-export" role="menuitem" tabindex="-1" href="#">Save</a></li>
+                              <li role="presentation"><a id="menu-view" role="menuitem" tabindex="-1" href="#">View my Image</a></li>
+                              <li role="presentation" class="divider"></li>
+                              <li role="presentation"><a id="menu-options" role="menuitem" tabindex="-1" href="#">Options</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" id="menu-edit" role="button" class="dropdown-toggle" data-toggle="dropdown">Edit<b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                              <!--li role="presentation"><a id="menu-copy" role="menuitem" tabindex="-1" href="#">Copy to Clipboard</a></li>
+                              <li role="presentation" class="divider"></li-->
+                              <li role="presentation"><a id="menu-clear" role="menuitem" tabindex="-1" href="#">Clear</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" id="menu-filter" role="button" class="dropdown-toggle" data-toggle="dropdown">Filter<b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Gaussian Blur</a></li>
+                          </ul>
+                      </li>
+                      <li>
+                          <a><input type="checkbox" checked id="wacom-support" class="switch-small" data-text-label="Wacom" ></a>
+                      </li>
+                      <li>
+                          <div class="btn-group" id="wacom-support-option" data-toggle="buttons" style="margin-top: 13px">
+                              <label id="wacom-opacity"  class="btn btn-sm btn-default active">
+                                  <input type="checkbox" value="Opacity" checked>
+                                  Opacity </label>
+                              <label id="wacom-size" class="btn btn-sm btn-default active">
+                                  <input type="checkbox" value="Size" checked>
+                                  Size </label>
+                          </div>
+                      </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li>
+                          <p id="statusText" class="navbar-text">Ready</p>
+                      </li>
+                      <li id="fat-menu" class="dropdown">
+                          <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                              <li role="presentation"><a id="menu-about" role="menuitem" tabindex="-1" href="#">About</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <ul class="nav navbar-nav side-nav">
+
+                      <li style="text-align: center">
+                          <p class="navbar-text" style="float: none">Toolbox</p>
+                          <div class="btn-group" data-toggle="buttons">
+                              <label id="tool-pencil"  class="btn btn-default active">
+                                  <input type="radio" name="inputWalls" value="Pencil" checked>
+                                  <i class="glyphicon glyphicon-pencil"></i></label>
+                              <label id="tool-brush" class="btn btn-default">
+                                  <input type="radio" name="inputWalls" value="Brush">
+                                  <i class="glyphicon glyphicon-tint"></i></label>
+                              <label id="tool-eraser" class="btn btn-default">
+                                  <input type="radio" name="inputWalls" value="Eraser">
+                                  <i class="fa fa-eraser"></i></label>
+                          </div>
+                          <div>
+                             <p> S:<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="40" data-slider-step="1" data-slider-value="25" data-slider-id="SizeC" id="Size" data-slider-tooltip="show" data-slider-handle="round" >
+                             </p>
+                             <p> O:<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100" data-slider-id="OpaC" id="Opa" data-slider-tooltip="show" data-slider-handle="round" >
+                             </p>
+                          </div>
+                          <div class="well">
+                              <canvas id="pattern" width="50" height="40"></canvas>
+                              <canvas id="realpattern" width="50" height="40" hidden="hidden"></canvas>
+                              <canvas id="temppattern" width="50" height="40" hidden="hidden"></canvas>
+                          </div>
+                      </li>
+                      <li>
+                          <!--div><p class="navbar-text" style="float:none" >Colorbox</p></div-->
+                          <div id="colorwheel" style=" width:120px; text-align:left;"></div>
+                          <p class="navbar-text"><input id="colorvalue" class="form-control selectable" value="#FF9900" size="7" style="background-color: rgb(0, 0, 0)" /></p>
+                      </li>
+
+                      <li>
+                          <div>
+                              <div class="panel-group" id="accordion">
+                                  <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseRGB">
+                                                  RGB
+                                              </a>
+                                          </h4>
+                                      </div>
+                                      <div id="collapseRGB" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <div style="width:130px;">
+                                                  <p>
+                                                      <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="RC" id="R" data-slider-tooltip="show" data-slider-handle="round" >
+                                                  </p>
+                                                  <p>
+                                                      <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="GC" id="G" data-slider-tooltip="show" data-slider-handle="round" >
+                                                  </p>
+                                                  <p>
+                                                      <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC" id="B" data-slider-tooltip="show" data-slider-handle="round" >
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseHSV">
+                                                  HSV
+                                              </a>
+                                          </h4>
+                                      </div>
+                                      <div id="collapseHSV" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <div style="width:130px;">
+                                                  <p>
+                                                      <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="360" data-slider-step="1" data-slider-value="128" data-slider-id="HC" id="H" data-slider-tooltip="show" data-slider-handle="round" >
+                                                  </p>
+                                                  <p>
+                                                      <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0.5" data-slider-id="SC" id="S" data-slider-tooltip="show" data-slider-handle="round" >
+                                                  </p>
+                                                  <p>
+                                                      <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0.5" data-slider-id="VC" id="V" data-slider-tooltip="show" data-slider-handle="round" >
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+                  <ul class="nav navbar-nav right-side-nav">
+                      <li style="text-align: center">
+                          <p class="navbar-text" style="float: none">Chatroom</p>
+
+                          <div>
+                              <!--div class="col-lg-6"-->
+                                  <div id="chatRoomContent" class="well form-control selectable" style="text-align: left; margin-bottom:0 ;overflow: scroll; height: 200px;" >
+                                      <h5>Welcome to Kanade Air!</h5>
+                                      <p class="chatroom-notice">Notice: Mouse is disabled when Wacom mode is on.</p>
+                                  </div>
+                                  <div class="input-group">
+                                      <input id="txtMsg" type="text" class="form-control selectable">
+                                      <span class="input-group-btn">
+                                        <button id="btnSendMsg" class="btn btn-default" type="button">Send</button>
+                                      </span>
+                                  </div><!-- /input-group -->
+                              <!--/div--><!-- /.col-lg-6 -->
+                          </div>
+                      </li>
+                      <li>
+                          <p class="navbar-text" style="float:none">Layers</p>
+                          <div>
+                              <div class="panel-group" id="layerSelection">
+                                  <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                  Layer 1
+                                              </a>
+                                          </h4>
+                                      </div>
+                                      <div id="collapseOne" class="panel-collapse collapse in">
+                                          <div class="panel-body">
+                                              Layer 1
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                  Layer 2
+                                              </a>
+                                          </h4>
+                                      </div>
+                                      <div id="collapseTwo" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              Layer 2
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                                  Layer 3
+                                              </a>
+                                          </h4>
+                                      </div>
+                                      <div id="collapseThree" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              Layer 3
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div><!-- /.nav-collapse -->
+          </nav>
+          <div id="drawing-area">
+              <canvas class="upperlayer absolute" width=1280 height=800>It seems your browser is too old for HTML5. :(</canvas>
+
+              <canvas class="layer absolute" width=1280 height=800>It seems your browser is too old for HTML5. :(</canvas>
+              <!--canvas class="upperlayer absolute" width=1280 height=800></canvas-->
+          </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="wacomNotSupported" tabindex="-1" role="dialog" aria-labelledby="wacomNotSupported" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="modalWacomNotSupported">Sorry</h4>
+                  </div>
+                  <div class="modal-body">
+                      <p>It seems that you haven't had Wacom Tablet Driver correctly installed.</p>
+                      <p>你的驱动似乎过期了或者你没有用过数位板。</p>
+                      <p>So the tablet support can not be turned on.</p>
+                      <p>所以数位板支持被禁用了~</p>
+                      <p>Sometimes reload this page could fix the problem.</p>
+                      <p>有时刷新本页或许能解决问题。</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <div class="modal fade" id="dialogAbout" tabindex="-1" role="dialog" aria-labelledby="About" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="modalDialogAbout">About</h4>
+                  </div>
+                  <div class="modal-body">
+                      <p>Kanade is a multi-person collaborative drawing platform from Tsinghua.</p>
+                      <p>This is a project for the course assignment of Fundamentals of Programming and Algorithm.</p>
+                      <p>Authors: Aluex (Sever-End and Browser-End), Yifan Sun (Client-End).</p>
+                      <div class="well">
+                        <b>Super thanks to CR(Jingran Chu)</b>
+                        <p>Many thanks to the authors of:</p>
+                        <p>
+                            Bootstrap <br>
+                            Font-Awesome <br>
+                            Bootstrap-Slider <br>
+                            Bootstrap-Switch <br>
+                            jQuery <br>
+                            jQuery-Colorwheel <br>
+                            JSON <br>
+                            Node.js <br>
+                            Node-Static <br>
+                            Notify.js <br>
+                            Raphael.js <br>
+                        </p>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <div class="modal fade" id="dialogExportNotice" tabindex="-1" role="dialog" aria-labelledby="ExportNotice" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="modalDialogExportNotice">Notice</h4>
+                  </div>
+                  <div class="modal-body">
+                      <p>Sometimes the suffix name may be broken. (Issues are known in Safari 7)</p>
+                      <p>有时文件的后缀名损坏，需要您亲自修改后缀名为png。（已知在Safari 7中存在问题）</p>
+                      <p>You may consider trying <i>View my Image</i> in the <i>File</i> menu and right-click the image to save it, if you still have difficulties in downloading your file.</p>
+                      <p>如果您仍然无法下载，您或许需要点击【文件】菜单中的【查看图像】然后右击弹出的窗口中的图片来下载它。</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <div class="modal fade" id="dialogDisconnect" tabindex="-1" role="dialog" aria-labelledby="Disconnect" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="modalDialogDisconnect">Confirm</h4>
+                  </div>
+                  <div class="modal-body">
+                      <p>Are you sure to disconnect?</p>
+                      <p>乃真的要断开连接么？</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button id="sureDisconnect" type="button" class="btn btn-default" data-dismiss="modal">Sure</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <div class="modal fade" id="dialogOptions" tabindex="-1" role="dialog" aria-labelledby="Options" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="modalDialogOptions">Options</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form role="form">
+                            <div class="well form-group">
+                                <label for="optionNickName">My Nick Name: </label>
+                                <input type="text" class="form-control" id="optionNickName" placeholder="NickName">
+                            </div>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                      <button id="okOption" type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
+      <div class="modal fade" id="dialogConnect" tabindex="-1" role="dialog" aria-labelledby="Connect" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="modalDialogConnect">Welcome To Kanade Air!</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form role="form">
+                          <div class="well">
+                          <div class="row">
+                              <div><label>Quick start:</label></div>
+                          <div class="col-md-6 col-md-offset-3">
+                              <button id="connectMain" type="button" class="btn btn-primary btn-lg">Connect directly to main server</button>
+                          </div>
+                          </div>
+                          </div>
+                          <div class="well disabledForm">
+                              <div class="row">
+                              <label>Or Connect to a different server:</label>
+                              </div>
+                              <div class="row">
+
+                                  <div class="input-group">
+                                      <input type="text" class="form-control" placeholder="Input server IP here">
+                                      <span class="input-group-btn">
+                                          <button class="btn btn-default" type="button">Go!</button>
+                                      </span>
+                                  </div><!-- /input-group -->
+
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                      <button id="sureConnect" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <object id="wtPlugin" type="application/x-wacomtabletplugin" width="1" height="1" style="position:absolute; left:100px; top:100px">
+          <!-- <param name="onload" value="pluginLoaded" /> -->
+      </object>
+
+      <script src="js/frontend.js" type="text/javascript"></script>
+      <script src="js/bootstrap-slider.js" type="text/javascript" ></script>
+      <script src="js/socket.js" type="text/javascript"></script>
+      <script src="js/kanade.js" type="text/javascript"></script>
+      <script src="js/json2.js" type="text/javascript"></script>
+      <script src="js/main.js" type="text/javascript"></script>
+</body>
+</html>

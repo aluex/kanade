@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: helvetica;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+#toobox {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.selectable {
+    -moz-user-select: initial;
+    -khtml-user-select: initial;
+    -webkit-user-select: initial;
+    user-select: initial;
+}
+
+.chatroom-username {
+    color: blue;
+}
+
+.chatroom-notice {
+    color: red;
+}
+
+#drawing-area {
+    position: fixed;
+    left:130px;
+    top: 57px;
+    right: 200px;
+    bottom:0px;
+    overflow: scroll;
+}
+.absolute {
+    position: absolute;
+}
+
+.upperlayer {
+
+}
+
+.layer {
+    cursor: crosshair;
+}
+/*
+.layer {
+    width:100%;
+    height:100%;
+}
+*/
+#R, #G, #B, #H, #S, #V, #Size, #Opa {
+    width: 100px;
+}
+#RC .slider-selection {
+    background: #FF8282;
+}
+#RC .slider-handle {
+    background: red;
+}
+#GC .slider-selection {
+    background: #428041;
+}
+#GC .slider-handle {
+    background: green;
+}
+#BC .slider-selection {
+    background: #8283FF;
+}
+#BC .slider-handle {
+    border-bottom-color: blue;
+}
+#colorvalue {
+    width:100px;
+}
+
+@media (max-width:768px)
+{
+    #drawing-area {
+        left:0; right:0;
+    }
+}

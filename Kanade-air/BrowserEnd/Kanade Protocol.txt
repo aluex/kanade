@@ -1,0 +1,78 @@
+Kanade Protocol
+===
+
+说明：简单版本假定服务器只有一个房间，所有的人退出时房间关闭。
+下面的服务器地址用$Server$代替
+
+//对于绘画历史用数字标号，由服务器接收时计算。该标号对客户端透明
+
+下面内容针对客户端：
+
+所有的服务器端返回值都要先读取对象的名为s的成员，为ok代表正常，否则说明出错了
+
+登陆流程：
+
+	访问 $Server$/login
+	服务器回传一个身份标识
+
+	例如:
+
+	{"s":"ok","id":78} #表示成功，id为78，注意id两边没有引号
+	{"s":"err"} #表示出错
+
+至此登陆成功，否则提示用户连接失败
+
+每0.5s：
+
+	访问 $Server$/breathe, Postdata为JSON格式：
+	{
+	id: 身份标识,
+	}
+
+    例如：{"id":78}
+
+	服务器的答复也为JSON格式：
+	{
+        'msgNum': 消息数目，为一个整数
+        'msgList':
+        [  #这是个列表，可能有多个消息，每个消息是下面的一个{}
+            {
+                msgType: 消息类型（'history', 'msg', 'other'中的一种，分别表示绘画历史，用户消息，未定）
+                msgContent: 消息内容
+                [其他属性,由msgType决定]
+            }
+        ]
+	}
+
+	例如：
+	{"s":"ok","msgList":[],"msgNum":0}
+
+关于msgType和额外字段的关系
+
+msgType=‘msg'时，额外字段有'username'，表示发送消息的昵称
+msgType='history'时，见下面的绘画历史定义
+
+每当用户的mousedown触发时，开始记录每次mousemove的点，当mouseup时整理成如下格式：
+	{
+	    id: id,
+        layer: 图层标号,
+        size: 笔刷大小,
+        opacity: 笔刷透明度,
+        wacomOpacity: 是否由数位板改变透明度,
+        wacomSize: 是否由数位板改变大小,
+        brushNo: 笔刷代号,
+        colors: RGB颜色  例如[0,0,0]
+        XList: X坐标列表 例如[1,2,3]
+        YList: Y坐标列表 例如[1,2,3]
+        PList: Pressure列表 例如[0,0.5,1]
+	}
+
+Post给$Server$/draw
+
+发送消息:
+    访问 $Server$/msg, Postdata为JSON格式:
+    {
+        id: 身份标识,
+        msg: 消息内容
+        un: 用户昵称（可用户自己决定）
+    }
