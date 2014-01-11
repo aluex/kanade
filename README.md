@@ -19,7 +19,7 @@ The Kanade Project is composed of 3 parts:
 
 - Aluex (Sever-End and Browser-End)
 
-- Yifan Sun (Client-End).
+- Nestle (Client-End).
 
 ##Usage
 ---
@@ -32,6 +32,23 @@ To run the server, simply run
 ## Protocol
 ---
 Please see */BrowserEnd/Kanade Protocol.txt* (Written in **Chinese**)
+
+## Brower Compatibility
+----
++ Linux
+	+ Chrome : Well done
+	+ Firefox : Well done
++ Mac
+	+ Chrome : Well done
+	+ Safari : Cannot change nick name
+	+ Firefox : Well done
++ Windows
+	+ Chrome : No Wacom Support
+	+ Other Webkit-based browser: Maybe Well done
+	+ Firefox : Well done
+	+ IE9+ : Drawing is OK
+	+ IE7+ : Unknown
+
 
 ## Acknowledges
 ---
