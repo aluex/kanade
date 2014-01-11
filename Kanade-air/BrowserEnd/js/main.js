@@ -268,6 +268,23 @@ $(document).ready(function(){
     updateStatus('Ready');
     //alert(WTablet.getPlugin().version);
 
+    // Shortcuts
+
+    $(document)
+    .on('keyup',function(evt){
+       switch(evt.keyCode)
+       {
+           case 69:
+               $('#tool-eraser').click(); break;
+           case 86:
+               $('#tool-brush').click(); break;
+           case 66:
+               $('#tool-pencil').click(); break;
+       }
+    });
+
+
+
     // Things to do when Entering the program
     $('#dialogConnect').modal();
 });
