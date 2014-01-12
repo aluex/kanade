@@ -9,17 +9,27 @@ This is a project for the course assignment of Fundamentals of Programming and A
 
 The Kanade Project is composed of 3 parts:
 
-+ Server End, written in Node.js
-+ Browser Client End, written in HTML5, CSS3, Javascript
-+ Native Client End, written in Qt5
-
++ Kanade-Air (Server End)
+	+ Written in Node.js
+	+ Provide service for Kanade-Air and Kanade-Sonic.
++ Kanade-Air (Browser Client End)
+	+ Written in HTML5, CSS3, Javascript
+	+ Provide real cross-platform experience.
++ Kanade-Sonic (Native Client End)
+	+ Written in Qt5, currently compatible only in Windows.
+	+ Provide better rendering performance and offline functions.
 
 ##Authors
 ---
 
-- Aluex (Sever-End and Browser-End)
+- Aluex (Sever-End, Browser-End, Protocol Design)
 
-- Nestle (Client-End).
+- Nestle (Client-End, Brush Optimization).
+
+##Client-End Compilation
+---
+Before you compile, please edit /Kanade-Sonic/Kanade/mainwindow.ui, and replace '$Path_Root$' with the path you place this repository.
+
 
 ##Server-End Usage
 ---
@@ -30,6 +40,10 @@ To run the server, simply run
 	node index.js [port]
 
 *port* is the port number for the service, 8201 by default.
+
+##Browser-End Usage
+---
+Simply visit the server with your favorite browser.
 
 ## Protocol
 ---
@@ -45,7 +59,7 @@ Please see */BrowserEnd/Kanade Protocol.txt* (Written in **Chinese**)
 	+ Safari : Well done
 	+ Firefox : Well done
 + Windows
-	+ Chrome : No Wacom Support
+	+ Chrome : No Wacom Support (May fix later)
 	+ Other Webkit-based browser: Maybe Well done
 	+ Firefox : Well done
 	+ IE9+ : Well done
@@ -54,7 +68,7 @@ Please see */BrowserEnd/Kanade Protocol.txt* (Written in **Chinese**)
 
 ## Acknowledgements
 ---
-Super thanks to @CR(Jingran Chu), @Umi and @Bamboo!</b>
+Super thanks to @CR(Jingran Chu), @Umi and @Bamboo!
 
 Many thanks to the authors of:
 

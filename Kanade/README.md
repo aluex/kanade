@@ -1,4 +1,0 @@
-Project Kanade
-======
-
-Kanade
