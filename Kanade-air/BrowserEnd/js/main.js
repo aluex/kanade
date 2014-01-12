@@ -22,6 +22,23 @@ var updateGlobalSettings = function() {
     GlobalSettings = settings;
     return settings;
 };
+var RGBChange = function() {
+    colors = [Slider_R.getValue(), Slider_G.getValue(), Slider_B.getValue()];
+    $('#colorvalue').css('background', 'rgb('+colors[0]+','+colors[1]+','+colors[2]+')')
+        .css('color', 'rgb('+(255-colors[0])+','+(255-colors[1])+','+(255-colors[2])+')')
+        .val(colorToHex(colors[0], colors[1], colors[2]))
+        .trigger('keyup');
+    updatePattern();
+};
+var HSVChange = function() {
+    var rgbColor = hsvToRGB(Slider_H.getValue(), Slider_S.getValue(), Slider_V.getValue());
+    colos = rgbColor;
+    $('#colorvalue').css('background', 'rgb('+rgbColor[0]+','+rgbColor[1]+','+rgbColor[2]+')')
+        .css('color', 'rgb('+(255-rgbColor[0])+','+(255-rgbColor[1])+','+(255-rgbColor[2])+')')
+        .val(colorToHex(rgbColor[0], rgbColor[1], rgbColor[2]))
+        .trigger('keyup');
+    updatePattern();
+}
 var updatePattern = function() {
     updateGlobalSettings();
 
@@ -89,23 +106,7 @@ $(document).ready(function(){
         Slider_V.setValue(hsvColors[2]);
         updatePattern();
     });
-    var RGBChange = function() {
-        colors = [Slider_R.getValue(), Slider_G.getValue(), Slider_B.getValue()];
-        $('#colorvalue').css('background', 'rgb('+colors[0]+','+colors[1]+','+colors[2]+')')
-            .css('color', 'rgb('+(255-colors[0])+','+(255-colors[1])+','+(255-colors[2])+')')
-            .val(colorToHex(colors[0], colors[1], colors[2]))
-            .trigger('keyup');
-        updatePattern();
-    };
-    var HSVChange = function() {
-        var rgbColor = hsvToRGB(Slider_H.getValue(), Slider_S.getValue(), Slider_V.getValue());
-        colos = rgbColor;
-        $('#colorvalue').css('background', 'rgb('+rgbColor[0]+','+rgbColor[1]+','+rgbColor[2]+')')
-            .css('color', 'rgb('+(255-rgbColor[0])+','+(255-rgbColor[1])+','+(255-rgbColor[2])+')')
-            .val(colorToHex(rgbColor[0], rgbColor[1], rgbColor[2]))
-            .trigger('keyup');
-        updatePattern();
-    }
+
     Slider_Size = $('#Size').slider().on('slide', sizeSliderChange).data('slider');
     Slider_Opa = $('#Opa').slider().on('slide', opaSliderChange).data('slider');
     Slider_R = $('#R').slider()
@@ -205,14 +206,20 @@ $(document).ready(function(){
 
     $('#okOption').click(function(){
         $('#dialogOptions').modal('hide');
-        if($('#optionNickName').val())
-            userName = $('#optionNickName').val();
+        var textNickName = $('#optionNickName').val();
+        if(textNickName)
+            userName = textNickName;
     });
 
     $('#optionNickName').keyup(function(evt){
         if(evt.keyCode == 13)
         {
-            $('#okOption').click();
+            //console.log('option key up 13');
+            $('#dialogOptions').modal('hide');
+            var textNickName = $('#optionNickName').val();
+            if(textNickName)
+                userName = textNickName;
+            //evt.stopPropagation();
         }
     });
 
@@ -232,6 +239,10 @@ $(document).ready(function(){
     });
     $('#tool-eraser').click(function(){
         Canvas.setBrush(Eraser);
+        updatePattern();
+    });
+    $('#tool-picker').click(function(){
+        Canvas.setBrush(ColorPicker);
         updatePattern();
     });
 

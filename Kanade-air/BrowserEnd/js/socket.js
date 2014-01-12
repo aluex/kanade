@@ -150,6 +150,7 @@ function breatheCallback(data){
     else
     {
         updateStatus('Communication Error');
+        id = null;
     }
 }
 
@@ -172,6 +173,7 @@ function breathe(){
             //if(XMLHttpRequest.readyState==204)breatheCallback(XMLHttpRequest.responseText);
             //else
             updateStatus('Connection broken');
+
         });
 
         setTimeout(breathe, breathInterval);

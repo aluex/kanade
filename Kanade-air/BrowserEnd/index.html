@@ -109,7 +109,11 @@
                               <label id="tool-eraser" class="btn btn-default">
                                   <input type="radio" name="inputWalls" value="Eraser">
                                   <i class="fa fa-eraser"></i></label>
+                              <label id="tool-picker" class="btn btn-default">
+                                  <input type="radio" name="inputWalls" value="picker">
+                                  <i class="glyphicon glyphicon-filter"></i></label>
                           </div>
+
                           <div>
                              <p> S:<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="40" data-slider-step="1" data-slider-value="25" data-slider-id="SizeC" id="Size" data-slider-tooltip="show" data-slider-handle="round" >
                              </p>
@@ -368,16 +372,16 @@
                       <h4 class="modal-title" id="modalDialogOptions">Options</h4>
                   </div>
                   <div class="modal-body">
-                      <form role="form">
+                      <div ><!--role="form"-->
                             <div class="well form-group">
                                 <label for="optionNickName">My Nick Name: </label>
-                                <input type="text" class="form-control" id="optionNickName" placeholder="NickName">
+                                <input type="text" class="form-control selectable" id="optionNickName" placeholder="NickName">
                             </div>
-                      </form>
+                      </div>
                   </div>
                   <div class="modal-footer">
-                      <button id="okOption" type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                      <button id="okOption" type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   </div>
               </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->

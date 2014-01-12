@@ -297,6 +297,41 @@ var LinearBrush = {
         ctx.stroke();
     }
 };
+var ColorPicker = {
+    size: 10,
+    opacity: 1.0,
+    context: null,
+    brushNo: 30,
+    notInHistory: true,
+    getready: function(){},
+    done: function(){},
+    updatePattern: function(ctx){
+    },
+    render: function(ctx, pattern, curX, curY, pressure, lastX, lastY, GlobalSettings, lastP, size, opacity)
+    {
+        var p = ctx.getImageData(curX, curY, 1, 1).data;
+        //if(p[3]==0) colors = [255,255,255];
+        //else
+        if(p[0]==0 && p[1] == 0 && p[2] == 0 && p[3] == 0)
+        {
+            colors = [255,255,255];
+            updateOpa(1);
+        }
+        else
+        {
+            colors[0] = p[0];
+            colors[1] = p[1];
+            colors[2] = p[2];
+            updateOpa(p[3] / 255.0);
+            //console.log(p / 255.0);
+        }
+        $('#colorvalue').css('background', 'rgb('+colors[0]+','+colors[1]+','+colors[2]+')')
+            .css('color', 'rgb('+(255-colors[0])+','+(255-colors[1])+','+(255-colors[2])+')')
+            .val(colorToHex(colors[0], colors[1], colors[2]))
+            .trigger('keyup');
+        //updatePattern();
+    }
+};
 var QuadraticBrush = {
     size: 10,
     opacity: 1.0,
@@ -355,7 +390,7 @@ var Canvas = {
     getLayers: function(){ return this.layers },
     getPattern: function(){ return this.pattern },
     getUpperLayer: function() {return this.upperLayer },
-    brushList:[LinearBrush, PaintBrush, Eraser],
+    brushList:[LinearBrush, PaintBrush, Eraser, ColorPicker],
     brushMap:{},
     setBrush: function(brush) {
         updateSize(brush.size);
@@ -437,7 +472,6 @@ var Canvas = {
         curX = (ev.pageX?ev.pageX : ev.clientX + document.body.scrollLeft) + Canvas.container.scrollLeft - canvasPos.x;
         curY = (ev.pageY?ev.pageY : ev.clientY + document.body.scrollTop) + Canvas.container.scrollTop - canvasPos.y;
 
-        XList.push(curX); YList.push(curY); PList.push(pressure); ++iList;
 
         capturing = Canvas.inCanvasBounds(curX, curY);
 
@@ -447,6 +481,8 @@ var Canvas = {
             {
                 var ctx = Canvas.layerContext;
                 //LinearBrush.render(ctx, curX, curY, pressure);
+                XList.push(curX); YList.push(curY); PList.push(pressure); ++iList;
+
                 Canvas.currentBrush.render(ctx, Canvas.getPattern(), curX, curY, pressure, lastX, lastY, GlobalSettings, PList[iList-1]);
             }
         }
@@ -484,7 +520,8 @@ var Canvas = {
         //Canvas.upperLayer.clearRect(0,0,)
         if(Canvas.currentBrush.done)
             Canvas.currentBrush.done();
-        sendPackage(GlobalSettings, XList, YList, PList);
+        if(Canvas.currentBrush.notInHistory == undefined)
+            sendPackage(GlobalSettings, XList, YList, PList);
     },
     registerEvent: function(){
         $(this.layers[0]).bind('mouseup',this.mouseup).bind('mousedown',this.mousedown);
