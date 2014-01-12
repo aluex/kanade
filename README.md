@@ -3,7 +3,7 @@ Project Kanade
 
 ##Overview
 ---
-Kanade is a collaborative drawing platform supporting **Wacom Tablets with Pressure**.
+Kanade is a cross-platform collaborative drawing platform supporting **Wacom Tablets with Pressure**.
 
 This is a project for the course assignment of Fundamentals of Programming and Algorithm.
 
@@ -21,8 +21,10 @@ The Kanade Project is composed of 3 parts:
 
 - Nestle (Client-End).
 
-##Usage
+##Server-End Usage
 ---
+Assume you've installed **node.js**
+
 To run the server, simply run
 
 	node index.js [port]
@@ -40,14 +42,14 @@ Please see */BrowserEnd/Kanade Protocol.txt* (Written in **Chinese**)
 	+ Firefox : Well done
 + Mac
 	+ Chrome : Well done
-	+ Safari : Cannot change nick name
+	+ Safari : Well done
 	+ Firefox : Well done
 + Windows
 	+ Chrome : No Wacom Support
 	+ Other Webkit-based browser: Maybe Well done
 	+ Firefox : Well done
-	+ IE9+ : Drawing is OK
-	+ IE7+ : Unknown
+	+ IE9+ : Well done
+	+ IE7-8 : Unknown
 
 
 ## Acknowledgements
