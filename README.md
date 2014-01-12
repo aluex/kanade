@@ -28,7 +28,7 @@ The Kanade Project is composed of 3 parts:
 
 ##Client-End Compilation
 ---
-Before you compile, please edit /Kanade-Sonic/Kanade/mainwindow.ui, and replace '$Path_Root$' with the path you place this repository.
+Before you compile, please edit /Kanade-Sonic/Kanade/mainwindow.ui, and replace '$Path_Root$' with the path in which you place this repository.
 
 
 ##Server-End Usage
@@ -44,6 +44,8 @@ To run the server, simply run
 ##Browser-End Usage
 ---
 Simply visit the server with your favorite browser.
+
+**Notice: We've blocked mouse events when Wacom mode is ON in order to prevent mis-operations**
 
 ## Protocol
 ---
